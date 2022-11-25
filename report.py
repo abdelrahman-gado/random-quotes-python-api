@@ -1,8 +1,7 @@
 import xlsxwriter
 
 def create_report(report_list, str_current_date):
-  directory_name = "./reports"
-  file_path = directory_name + "/" + 'quotes_api_report_' + str_current_date + ".xlsx";
+  file_path = 'quotes_api_report_' + str_current_date + ".xlsx"
   workbook = xlsxwriter.Workbook(file_path);
   worksheet = workbook.add_worksheet()
   worksheet.write(0, 0, 'Quote ID');
