@@ -1,4 +1,5 @@
 from flask import Flask
+from loadjsonfiles import quotes, authors
 
 app = Flask(__name__)
 
