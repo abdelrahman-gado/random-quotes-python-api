@@ -5,11 +5,18 @@ from flask import make_response
 from functools import wraps
 from loadjsonfiles import quotes, authors
 from random import choice
+from datetime import datetime
 
 app = Flask(__name__)
 app.config.from_pyfile("./config.py")
 
 quotes_map = {};
+
+
+def get_formatted_current_datetime():
+  current_datetime = datetime.now()
+  return current_datetime.strftime("%Y_%m_%d_%H_%M_%S")
+
 
 def record_call(id):
   if id not in quotes_map:
@@ -51,10 +58,8 @@ def get_random_quote():
   quote_author_name = get_quote_author(random_quote_id)
   record_call(random_quote_id)
 
-
   return {
     "quoteId": random_quote_id,
     "quote": random_quote["quote"],
-    "author": quote_author_name,
-    "quotes_map": quotes_map
+    "author": quote_author_name
   } , 200
