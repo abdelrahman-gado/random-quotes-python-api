@@ -1,7 +1,5 @@
 from flask import Flask
-from flask import request
-from flask import jsonify
-from flask import make_response
+from flask import request, jsonify, make_response
 from functools import wraps
 from loadjsonfiles import quotes, authors
 from random import choice
